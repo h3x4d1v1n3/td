@@ -17,5 +17,5 @@ COPY . .
 RUN echo "Build..."
 RUN yarn workspaces run build
 
-RUN echo "Run migrations... & Start"
-CMD ["yarn", "api", "prisma", "migrate", "deploy", "&&", "yarn", "start" ]
+RUN echo "Start"
+CMD ["yarn", "start" ]
