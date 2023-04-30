@@ -20,5 +20,5 @@ RUN yarn workspaces run build
 RUN echo "Run migrations..."
 RUN yarn api prisma migrate deploy
 
-RUN echo "Start
+RUN echo "Start"
 CMD [ "yarn", "start" ]
