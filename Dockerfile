@@ -8,9 +8,17 @@ COPY yarn.lock .
 COPY package.json .
 COPY api/package.json api/package.json
 COPY web/package.json web/package.json
-# COPY docker/.env .
+
 RUN yarn cache clean
 RUN yarn install --network-timeout 1000000
+
 COPY . .
+
+RUN echo "Build..."
 RUN yarn workspaces run build
+
+RUN echo "Run migrations..."
+RUN yarn api prisma migrate deploy
+
+RUN echo "Start
 CMD [ "yarn", "start" ]
